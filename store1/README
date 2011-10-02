@@ -1,0 +1,20 @@
+I'm opening a new store on Monday, and I need a point-of-sale system.
+My nephew promised to build one for me for low cost, and he spent 3
+months on it, but he doesn't have anything working, and so I need
+something working soon! I know that, at the minimum, I need one simple
+feature to work:
+
+I have a barcode scanner (like this one http://link.jbrains.ca/pXMfln)
+and an LCD display (like this one http://link.jbrains.ca/mU6UX9). When
+I scan a product's barcode, I want to see the price of that product on
+the display. For now, you can just display the price on the screen of
+a laptop, and we'll connect that to the LCD display later.
+
+If I scan a product, and we don't know the price, display "No price
+found for 273612", where "273612" is the barcode I scanned.
+
+Try this exercise with strict test-driven development and paying
+attention to the four elements of simple design:
+http://link.jbrains.ca/g9P6Jw
+
+If you have the software to do it, try recording your work as a screencast. :)
