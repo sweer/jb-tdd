@@ -1,3 +1,10 @@
+
+This solution have emerged using coarse-grained functional tests.
+It has not been elaborated to provide "daemon" behavior continuosly 
+trying to scan a barcode.
+
+Here is the problem description. 
+
 I'm opening a new store on Monday, and I need a point-of-sale system.
 My nephew promised to build one for me for low cost, and he spent 3
 months on it, but he doesn't have anything working, and so I need
