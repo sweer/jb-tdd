@@ -1,0 +1,77 @@
+TDD Intro
+
+Take JB notes from: 
+http://www.evernote.com/shard/s84/sh/256abeea-ba32-4871-9733-725105c1f710/fc6ee1d52022d74c0f152f9d3d0b5886
+
+Feedback door: ! and ? 
+
+Kanban wall: request (for questions)
+
+Classes resist transition from one client to two, test is the second client.
+
+c2.com TestDrivenDevelopment
+
+Which languages who uses. Starting w/o framework is perfectly acceptable. 
+
+TDD Stack
+
+Aversion therapy - hit your hand.
+
+Ping-pong TDD: A writes a test, B makes it pass, B writes a test, A ...
+
+Before start coding make a list of tests we're going to make and choose one to start.
+
+Test isolation: 
+- initialisation
+- one bug breaking multiple tests
+
+Repeatable tests - only changing production code or data shall change tests behaviour.
+
+Before adding code make sure tests pass. 
+
+Now practising writing less code to satisfy tests. Removing code so that tests still run. 
+
+Ratchet effect - why do we move forward in small steps.
+
+Add new behaviour parallel to existing and tested old one. Make sure the addition didn't break the old code. 
+Then start using the new variables. Then remove unused old variables.
+
+"The customer will understand." 
+
+"Bugs" are "mistakes" nowadays.
+
+85% code coverage is ok. 
+
+You're adults, I can't force you, you decide and execute.
+
+Jasmine Javascript BDD framework 
+
+Arrange Act Assert - make it clear, which action we're checking.
+
+"" bar code will lead to strange message "No product for barcode "
+
+Who's broken if A calling B results in NPE thrown? Depends on how close their developers are.
+
+Tests in a separate package to force usable interface of SUT.
+
+The call from Pos to Display appears after there're two "product found" tests and there's a REAL need to pass data between the two.
+
+Remove duplication after tests pass. Code duplication and data duplication. Between production code and test code.
+
+Dragging selection in Eclipse is a nice feature. Eclipse: run last application checkbox and run JUnit on the project. 
+
+Dreyfus model of skill acqusition
+
+Sale Map Display === Controller Model View???
+
+Architecture without trying.
+
+Mechanical and Intuiive design (from jbrains.ca "becoming an accomplished software designer")
+
+Konkretnoe dolzhno zavisetj ot abstraktnogo, a ne naoborot. 
+
+Book Chess: 5334 problems... by Polgar
+
+ 
+
+
