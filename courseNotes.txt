@@ -66,12 +66,104 @@ Sale Map Display === Controller Model View???
 
 Architecture without trying.
 
-Mechanical and Intuiive design (from jbrains.ca "becoming an accomplished software designer")
+Mechanical and Intuitive design (from jbrains.ca "becoming an accomplished software designer")
 
 Konkretnoe dolzhno zavisetj ot abstraktnogo, a ne naoborot. 
 
 Book Chess: 5334 problems... by Polgar
 
- 
+Addition to the POS task: tax 5% G or 8% GP, show price w/o tax, after "Total" with tax; multiple items in one sale ("Total" signals the end); printing receipt. 
 
+jbrains.ca: "Adding behavior with confidence"
+
+Book: MIchael Feathers "Working effectively with legacy code" 
+
+-----------------------------------
+
+XHtmlUnit - give data transfer objects to web view and check whether specific values appeared in specific span's.
+
+Duplication is also calling same method or using same class for two different reasons. 
+
+Don't write tests that talk to ApplicationContext? Dependency direction problem
+
+Teamwork: each working on a particular feature (as opposed to layer), talk together 1.5h/week looking at fresh code. 
+
+Presenter first - Agile 2006 paper: 
+- we assume MVC architecture from our experience
+- we implement the controller requiring some behavior from model and view, these contracts expressed as interface 
+- we let their interfaces emerge, using mocks 
+- then we create model and view implementations, testing their conformance to the contracts
+- it's a reusable architecture shortcut practise has tought us is safe
+
+Forward internet group has an environment requiring no TDD: forward.co.uk
+
+Why TDD: 
+- cost of failure
+- cost of loosing trust of customers
+- learning good design
+
+New classes may be nested in the test class for the beginning. 
+
+Google "Feature injection" 
+
+The 30 seconds version is ...
+
+toString() improves readability of jMock tests.
+
+Eclipse:
+- inverse color scheme 
+- context menu invocation keyboard shortcut
+
+Open Source TDD project examples? 
+
+Code smell leads you to a hypothesis. Write more tests to gather more evidence and confirm or disprove it. 
+
+Setup JUnit & mock libraries beforehand!
+
+Isolated vs Integrated tests:
+- Isolated: testing a class against stubs implementing the contracts. This way it's easier to notice responsibilities scattered improperly over the system. It will feel as testing pain. 
+- Integrated: using implementations of used classes. Recommended in the beginning to learn better design. In long run requires 
+much more prudent duplication removal and naming, since it's possible for responsibilities to spread over many classes unnoticed.
+
+Collections.singletonMap(); 
+
+Cucumber - elegance of BDD!
+
+=================================================================================
+
+J.B. notes: 
+
+Reading
+http://c2.com/cgi/wiki?TestDrivenDevelopment
+http://link.jbrains.ca/p49hJc
+http://c2.com/cgi/wiki?ArrangeActAssert
+http://pivotal.github.com/jasmine/
+http://link.jbrains.ca/gj2svQ
+http://link.jbrains.ca/mZwHzi
+http://link.jbrains.ca/gmeMhh
+http://www.librarything.com/profile/jbrains
+http://link.jbrains.ca/kvRc5x
+http://link.jbrains.ca/nRTkRa
+http://link.jbrains.ca/pocv48
+
+
+Coding
+https://github.com/jbrains/IntroToTdd-Vilnius-October2011
+
+
+Concepts
+Which test will force me to write the code that I think I need to write?
+Before writing a test, make a list of the tests you might need
+Ping-Pong pair programming
+Tests should be isolated from each other: if one fails, the rest should still run sensibly
+Tests should be repeatable: only changing the production code or data should change the result of a test
+Begin a test with the thing you want to check (assertion first)
+Check one thing at a time (one assertion per test)
+Worry about one thing at a time (one action per test)
+Triangulation
+Make similarity more similar, to make it easier to remove duplication
+If you can't remove duplication, move the copies closer together
+A Guard Clause can be a sign that two responsibilities should be separated
+If you can't decide how to improve the design, try writing more tests
+Context independence: an object should know as little as possible about its surroundings; related to Dependency Inversion Principle: concrete things should depend on abstract things, but abstract things should not depend on concrete things
 
