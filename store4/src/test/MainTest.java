@@ -19,7 +19,20 @@ import org.junit.Test;
  * 
  * done Scanning unknown barcode 22222 it displays "No price for 22222" 
  * 
- * Scanning empty barcode it displays "Empty barcode scanned"
+ * done Scanning empty barcode it displays "Empty barcode scanned"
+ * 
+ * At this point it's evident we've view, controller and model all in one Pos class. 
+ * String variable called "price" stinks. 
+ * 
+ * Req-ts: 
+ * Some products have GST 5% and some additional PST 6% on top of it. 
+ * Price display shall include G or GP indicator. 
+ * Pressing "total" shall display cost = price + all applicable taxes. 
+ * 
+ * Tests: 
+ * 
+ * 
+ * 
  */
 
 public class MainTest {
@@ -35,6 +48,11 @@ public class MainTest {
 		}
 
 		void onBarcodeScanned(final String barcode) {
+			if (barcode.equals("")) { 
+				display.display("Empty barcode scanned"); 
+				return;
+			}
+			
 			String price = barcodeToPriceMap.get(barcode);
 			if (price != null) 
 				display.display(price);
@@ -93,6 +111,14 @@ public class MainTest {
 		assertEquals("No price for " + barcode, display.getLastDisplayedString()); 
 	}
 
+	@Test
+	public void testScanEmptyBarcode() {
+		final String barcode = ""; 
+		
+		pos.onBarcodeScanned(barcode); 
+		
+		assertEquals("Empty barcode scanned", display.getLastDisplayedString()); 
+	}
 
-
+	
 }
