@@ -33,6 +33,8 @@ Now practising writing less code to satisfy tests. Removing code so that tests s
 
 Ratchet effect - why do we move forward in small steps.
 
+The "point neighborhood" example
+
 Add new behaviour parallel to existing and tested old one. Make sure the addition didn't break the old code. 
 Then start using the new variables. Then remove unused old variables.
 
