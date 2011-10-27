@@ -1,0 +1,85 @@
+Classes resist transition from one client to two, test is the second client.
+
+Aversion therapy - hit your hand.
+
+Ping-pong TDD: A writes a test, B makes it pass, B writes a test, A ...
+
+Before start coding make a list of tests we're going to make and choose one to start.
+
+Test isolation: 
+- initialisation
+- one bug breaking multiple tests
+
+Repeatable tests - only changing production code or data shall change tests behaviour.
+
+Before adding code make sure tests pass. 
+
+Practise writing less code to satisfy tests. Removing code so that tests still run. 
+
+Ratchet effect - why do we move forward in small steps.
+
+Add new behaviour parallel to existing and tested old one. Make sure the addition didn't break the old code. Then start using the new variables. Then remove unused old variables.
+
+"Bugs" are "mistakes" nowadays.
+
+Arrange Act Assert - make it clear, which action we're checking.
+
+Tests in a separate package to force usable public interface of SUT.
+
+Remove duplication after tests pass. Code duplication and data duplication. Between production code and test code.
+
+Dreyfus model of skill acqusition
+
+Book: Michael Feathers "Working effectively with legacy code" 
+
+XHtmlUnit - give data transfer objects to web view and check whether specific values appeared in specific span's.
+
+Duplication is also calling same method or using same class for two different reasons. 
+
+Why TDD: 
+- cost of failure
+- cost of loosing trust of customers
+- learning good design
+
+Code smell leads you to a hypothesis. Write more tests to gather more evidence and confirm or disprove it. 
+
+Isolated vs Integrated tests:
+- Isolated: testing a class against stubs implementing the contracts. This way it's easier to notice responsibilities scattered improperly over the system. It will feel as testing pain. 
+- Integrated: using implementations of used classes. Recommended in the beginning to learn better design. In long run requires 
+much more prudent duplication removal and naming, since it's possible for responsibilities to spread over many classes unnoticed.
+
+Cucumber - elegance of BDD!
+
+=================================================================================
+
+J.B. notes: 
+
+Reading
+http://c2.com/cgi/wiki?TestDrivenDevelopment
+http://blog.thecodewhisperer.com/2010/01/14/what-your-tests-dont-need-to-know-will-hurt-you
+http://c2.com/cgi/wiki?ArrangeActAssert
+http://pivotal.github.com/jasmine/
+http://www.jbrains.ca/permalink/how-test-driven-development-works-and-more
+http://junit.sourceforge.net/doc/faq/faq.htm#best_3
+http://www.jbrains.ca/permalink/becoming-an-accomplished-software-designer
+http://www.librarything.com/profile/jbrains
+http://blog.thecodewhisperer.com/2011/06/22/adding-behavior-with-confidence/
+http://www.atomicobject.com/files/PresenterFirstAgile2006.pdf
+http://c2.com/cgi/wiki?ValueObject
+
+Concepts
+Which test will force me to write the code that I think I need to write?
+Before writing a test, make a list of the tests you might need
+Ping-Pong pair programming
+Tests should be isolated from each other: if one fails, the rest should still run sensibly
+Tests should be repeatable: only changing the production code or data should change the result of a test
+Begin a test with the thing you want to check (assertion first)
+Check one thing at a time (one assertion per test)
+Worry about one thing at a time (one action per test)
+Triangulation
+Make similarity more similar, to make it easier to remove duplication
+If you can't remove duplication, move the copies closer together
+A Guard Clause can be a sign that two responsibilities should be separated
+If you can't decide how to improve the design, try writing more tests
+Context independence: an object should know as little as possible about its surroundings; related to Dependency Inversion Principle: concrete things should depend on abstract things, but abstract things should not depend on concrete things
+
