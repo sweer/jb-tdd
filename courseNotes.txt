@@ -1,7 +1,6 @@
-TDD Intro
+The feeling of safety. 
 
-Take JB notes from: 
-http://www.evernote.com/shard/s84/sh/256abeea-ba32-4871-9733-725105c1f710/fc6ee1d52022d74c0f152f9d3d0b5886
+TDD Intro
 
 Feedback door: ! and ? 
 
@@ -12,6 +11,12 @@ Classes resist transition from one client to two, test is the second client.
 c2.com TestDrivenDevelopment
 
 Which languages who uses. Starting w/o framework is perfectly acceptable. 
+
+The "point neighborhood" example
+
+Obvious solution or constant, then refactor or triangulate. 
+
+Varying step size and size of feature to test.
 
 TDD Stack
 
@@ -32,8 +37,6 @@ Before adding code make sure tests pass.
 Now practising writing less code to satisfy tests. Removing code so that tests still run. 
 
 Ratchet effect - why do we move forward in small steps.
-
-The "point neighborhood" example
 
 Add new behaviour parallel to existing and tested old one. Make sure the addition didn't break the old code. 
 Then start using the new variables. Then remove unused old variables.
@@ -133,25 +136,29 @@ Cucumber - elegance of BDD!
 
 =================================================================================
 
-J.B. notes: 
+J.B. notes and other: 
 
 Reading
 http://c2.com/cgi/wiki?TestDrivenDevelopment
-http://link.jbrains.ca/p49hJc
+http://blog.thecodewhisperer.com/2010/01/14/what-your-tests-dont-need-to-know-will-hurt-you
 http://c2.com/cgi/wiki?ArrangeActAssert
 http://pivotal.github.com/jasmine/
-http://link.jbrains.ca/gj2svQ
-http://link.jbrains.ca/mZwHzi
-http://link.jbrains.ca/gmeMhh
+http://www.jbrains.ca/permalink/how-test-driven-development-works-and-more
+http://junit.sourceforge.net/doc/faq/faq.htm#best_3
+http://www.jbrains.ca/permalink/becoming-an-accomplished-software-designer
 http://www.librarything.com/profile/jbrains
-http://link.jbrains.ca/kvRc5x
-http://link.jbrains.ca/nRTkRa
-http://link.jbrains.ca/pocv48
+http://blog.thecodewhisperer.com/2011/06/22/adding-behavior-with-confidence/
+http://www.atomicobject.com/files/PresenterFirstAgile2006.pdf
+http://c2.com/cgi/wiki?ValueObject
+http://www.tvagile.com/2011/10/13/evolutionary-design-illustrated/
+http://xunitpatterns.com/
+
 
 
 Coding
+https://github.com/sweer/jb-tdd
 https://github.com/jbrains/IntroToTdd-Vilnius-October2011
-
+http://docs.mockito.googlecode.com/hg/latest/org/mockito/Mockito.html
 
 Concepts
 Which test will force me to write the code that I think I need to write?

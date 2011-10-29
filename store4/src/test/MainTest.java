@@ -25,7 +25,7 @@ import org.junit.Test;
  * done clicking Total then displays 21.13 
  * 
  * done Scanning 33333 displays 33.17 G, 
- * clicking Total then displays 34.83
+ * done clicking Total then displays 34.83
  * 
  * Scanning 44444 displays 444.11 GP, clicking Total then displays 494.29  
  * 
@@ -36,38 +36,53 @@ import org.junit.Test;
  * 
  * Notes: 
  * 
- * We've controller and model all in one Pos class. 
  * Double math arithmetics is dangerous. 
  * 
  */
 
 public class MainTest {
 
-	enum TaxType { 
-		NO_TAX, GST, GST_AND_PST;  
+	enum Tax { 
+		NO_TAX { 
+			double apply(double amount) { 
+				return amount; 
+			}
+		}, GST { 
+			double apply(double amount) { 
+				return amount * 1.05; 
+			}
+		}
+		, GST_AND_PST;
+		double apply(double amount) { 
+			throw new UnsupportedOperationException(); 
+		}
 	}
 	
 	static final class Price { 
 		private final double price; 
-		private final TaxType taxType;
+		private final Tax tax;
 
 		
 		public double getPrice() {
 			return price;
 		}
-		public TaxType getTaxType() {
-			return taxType;
+		public Tax getTax() {
+			return tax;
 		}
-		public Price(double price, TaxType taxType) {
+		public Price(double price, Tax taxType) {
 			super();
 			this.price = price;
-			this.taxType = taxType;
+			this.tax = taxType;
+		}
+		public double getTotal() {
+			return tax.apply(price);
 		}   
 	}
 	
-	static class Pos {
+	static private class Pos {
 		private final Display display;
 		private final Map<String, Price> barcodeToPriceMap;
+		private Price price;
 		
 		public Pos(Display display, Map<String, Price> barcodeToPriceMap) {
 			super();
@@ -81,31 +96,35 @@ public class MainTest {
 				return;
 			}
 			
-			Price price = barcodeToPriceMap.get(barcode);
+			price = barcodeToPriceMap.get(barcode);
 			if (price != null) {  
-				display.displayPrice(price.getPrice(), price.getTaxType());  
+				display.displayPrice(price.getPrice(), price.getTax());  
 			} else {  
 				display.displayBarcodeNotFound(barcode); 
 			}
 		}
 
 		public void onTotal() {
-			// TODO Auto-generated method stub
-			
+			display.displayTotal(price.getTotal()); 
 		}
 	}
 	
 	static class Display {
 		private String lastDisplayedString;
-		private final Map<TaxType, String> taxLabel = new HashMap<TaxType, String>() {{
-			put(TaxType.NO_TAX, ""); 
-			put(TaxType.GST, " G"); 
+		private final Map<Tax, String> taxLabel = new HashMap<Tax, String>() {{
+			put(Tax.NO_TAX, ""); 
+			put(Tax.GST, " G"); 
 		}}; 
 		public void displayBarcodeNotFound(String barcode) {
 			sendToDisplay("No price for " + barcode);
 		}
 
-		public void displayPrice(double price, TaxType taxType) {
+		public void displayTotal(double total) {
+			sendToDisplay(String.format("%.2f", total));
+			
+		}
+
+		public void displayPrice(double price, Tax taxType) {
 			sendToDisplay(Double.toString(price) + taxLabel.get(taxType));
 		}
 
@@ -135,8 +154,8 @@ public class MainTest {
 		display = new Display();  
 
 		barcodeToPriceMap = new HashMap<String, Price>() { {
-			put("11111", new Price(21.13, TaxType.NO_TAX)); 
-			put("33333", new Price(33.17, TaxType.GST)); 
+			put("11111", new Price(21.13, Tax.NO_TAX)); 
+			put("33333", new Price(33.17, Tax.GST)); 
 		};
 		};
 		
@@ -161,16 +180,16 @@ public class MainTest {
 		assertEquals(Double.toString(barcodeToPriceMap.get(barcode).getPrice()) + " G", display.getLastDisplayedString()); 
 	}
 
-//	@Test
-//	public void testTotalKnownBarcode2() {
-//		final String barcode = "33333"; 
-//		
-//		pos.onBarcodeScanned(barcode);
-//		
-//		pos.onTotal();
-//		
-//		assertEquals(String.format("%.2f", barcodeToPriceMap.get(barcode).getPrice()*1.05), display.getLastDisplayedString()); 
-//	}
+	@Test
+	public void testTotalKnownBarcode2() {
+		final String barcode = "33333"; 
+		
+		pos.onBarcodeScanned(barcode);
+		
+		pos.onTotal();
+		
+		assertEquals(String.format("%.2f", barcodeToPriceMap.get(barcode).getPrice()*1.05), display.getLastDisplayedString()); 
+	}
 	
 	
 	

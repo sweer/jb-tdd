@@ -52,7 +52,7 @@ Cucumber - elegance of BDD!
 
 =================================================================================
 
-J.B. notes: 
+J.B. notes and other: 
 
 Reading
 http://c2.com/cgi/wiki?TestDrivenDevelopment
@@ -66,6 +66,14 @@ http://www.librarything.com/profile/jbrains
 http://blog.thecodewhisperer.com/2011/06/22/adding-behavior-with-confidence/
 http://www.atomicobject.com/files/PresenterFirstAgile2006.pdf
 http://c2.com/cgi/wiki?ValueObject
+http://www.tvagile.com/2011/10/13/evolutionary-design-illustrated/
+http://xunitpatterns.com/
+
+Coding
+https://github.com/sweer/jb-tdd
+https://github.com/jbrains/IntroToTdd-Vilnius-October2011
+http://docs.mockito.googlecode.com/hg/latest/org/mockito/Mockito.html
+
 
 Concepts
 Which test will force me to write the code that I think I need to write?
